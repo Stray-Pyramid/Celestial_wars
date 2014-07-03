@@ -1,0 +1,95 @@
+body{
+	background:#eee;
+	font-family:Verdana, Helvetica, Arial, sans-serif;
+	margin:0;
+	padding:0
+}
+
+.structure{
+	background:#FFF;
+	width:850px;
+	font-size:80%;
+	border:1px #000 solid;
+	margin:20px auto;
+	position:relative;
+	-moz-border-radius: 3px;
+	-webkit-border-radius: 3px;
+	min-height: 160px;
+}
+
+h3 {
+	text-align:left
+}
+
+img{
+	width: 100px;
+}
+
+.structure > div{
+	float: left;
+	padding-left: 10px;
+	height: 160px;
+
+}
+
+.structure .structure_pic{
+	width: 200px;
+	border-right: 1px solid black;
+}
+
+div.progress_bar{
+	width: 450px;
+	padding-right: 10px;
+	margin-top: 45px;
+	height: 50px;
+}
+
+div.upgrade_button {
+    border-left: 1px solid black;
+    width: 150px;
+}
+.pbar .ui-progressbar-value {
+	display:block !important
+}
+
+.pbar {
+	overflow: hidden
+}
+
+.percent {
+	position:relative;
+	text-align: right;
+}
+
+.elapsed {
+	position:relative;
+	text-align: right;
+}
+
+input[type="submit"] {
+    width: 150px;
+    height: 140px;
+    margin-top: 10px;
+}
+
+header ul {
+    list-style: none;
+}
+
+header nav ul li {
+    padding-left: 5px;
+    padding-right: 10px;
+    border-right: 1px solid;
+    display: inline;
+}
+
+.resources ul li {
+    display: inline;
+}
+
+.resources ul {
+}
+
+.resources img {
+    width: 30px;
+}
