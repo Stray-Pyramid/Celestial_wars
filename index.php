@@ -12,15 +12,15 @@
 	
 	<?php
 		require_once '../../database_connection.php';
+		require_once 'item_updater.php';
 
-
-		$time = 100; //Default upgrade time
 				
 		$player_query = mysql_query("SELECT * FROM player_status WHERE user_id=1");
 		$player = mysql_fetch_array($player_query);
 		
-		$struc_query = mysql_query("SELECT level, producing, upkeep, is_upgrading, upgrade_start, upgrade_duration FROM structure_status WHERE user_id='1'");
+		$struc_query = mysql_query("SELECT * FROM structure_status WHERE user_id = 1 ORDER BY field(structure, 'Mine_Coal', 'Mine_Iron', 'Farm_Bio', 'Powerplant_Uranium')");
 		$i=0;
+		$struc = array();
 
 		while($struc_result = mysql_fetch_array($struc_query))
 		{
@@ -72,8 +72,8 @@
 					if ($struc[0]['is_upgrading']){
 						//Get time to finish and start progress bar
 						$current_progress = 0;
-						$time_to_finish = 100;
-						echo "<script type='text/javascript'>progress_bar({$time}, Mine_Coal);</script>";//Add '$time till finish' script
+						$time_to_finish = $struc[0]['upgrade_duration'] - (strtotime('now') - strtotime($struc[0]['upgrade_start']));
+						echo "<script type='text/javascript'>progress_bar({$time_to_finish}, Mine_Coal);</script>";//Add '$time till finish' script
 					} else /*If not upgrading*/{
 						//Echo the level of the structure and its resource rate
 						echo "<p>LEVEL {$struc[0]['level']}</p>";
@@ -95,7 +95,7 @@
 				?>
 			</div>
 		</div>
-		
+
 		<div class="structure">
 			<div class="structure_pic">
 				<h3>Iron Mine</h3>
@@ -157,9 +157,6 @@
 			</div>
 		</div>
 	</div>
-	<?php
-		require_once 'item_updater.php';
-	?>
 </body>
 </html>
 

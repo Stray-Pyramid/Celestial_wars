@@ -2,7 +2,7 @@
 <html>
 	<head>
 		<title>Upgrade Script</title>
-		<meta http-equiv="refresh" content="1;url=index.php"> 
+		<meta http-equiv="refresh" content="0;url=index.php"> 
 	</head>
 	<body>
 <?php
@@ -49,7 +49,6 @@
 			die ("<p>You do not have enough resources to upgrade your {$structure}!</p>"); 
 		}
 	}
-	echo "script is working";
 ?>
 	</body>
 </html>
