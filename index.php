@@ -1,20 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<link href="css/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css"/>
-	<link href="css/main.css" rel="stylesheet" type="text/css" />
-
-	<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
-	<script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script> 
-	<script type="text/javascript" src="js/script.js"></script>
-
-	<title>Animated jQuery progressbar | Script tutorials</title>
-	
 	<?php
 		require_once '../../database_connection.php';
 		require_once 'item_updater.php';
-
-				
+	
 		$player_query = mysql_query("SELECT * FROM player_status WHERE user_id=1");
 		$player = mysql_fetch_array($player_query);
 		
@@ -22,18 +12,61 @@
 		$i=0;
 		$struc = array();
 
-		while($struc_result = mysql_fetch_array($struc_query))
-		{
+		while($struc_result = mysql_fetch_array($struc_query)){
 			$struc[$i]['level']=$struc_result['level'];
 			$struc[$i]['producing']=$struc_result['producing'];
 			$struc[$i]['upkeep']=$struc_result['upkeep'];
 			$struc[$i]['is_upgrading']=$struc_result['is_upgrading'];
 			$struc[$i]['upgrade_start']=$struc_result['upgrade_start'];
 			$struc[$i]['upgrade_duration']=$struc_result['upgrade_duration'];
-			
 			$i++;
 		}
 	?>
+
+	<title>A typical MO Space strategy game</title>
+	
+	<link href="css/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css"/>
+	<link href="css/main.css" rel="stylesheet" type="text/css" />
+
+	<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
+	<script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script> 
+	
+	<script type="text/javascript" src="js/script.js"></script>
+	<script type="text/javascript">
+	
+	<?php
+	echo "var coal = " .  ($player['res_coal'] + ((strtotime('now') - strtotime($player['last_updated'])) * $struc[0]['producing'])) . ";";
+	echo "var coal_inc = " . $struc[0]['producing'] / 4 . ";"; 
+	echo "var iron = " . ($player['res_iron'] + ((strtotime('now') - strtotime($player['last_updated'])) * $struc[1]['producing'])). ";";
+	echo "var iron_inc = " . $struc[1]['producing'] / 4  . ";"; 
+	echo "var food = " . ($player['res_food'] + ((strtotime('now') - strtotime($player['last_updated'])) * $struc[2]['producing'])) . ";";
+	echo "var food_inc = " . $struc[2]['producing'] / 4  . ";";
+	?>
+	
+	$('#res_coal').html(coal);
+	$('#res_iron').html(iron);
+	$('#res_food').html(food);
+
+	setInterval(function() {
+		 var value = parseInt($('#res_coal').html());
+		 coal = coal + coal_inc;
+		 $('#res_coal').html(Math.ceil(coal));
+	}, 250);
+
+	setInterval(function() {
+		 var value = parseInt($('#res_iron').html());
+		 iron = iron + iron_inc;
+		 var iron_round = Math.ceil(iron);
+		 $('#res_iron').html(Math.ceil(iron));
+	}, 250);
+
+	setInterval(function() {
+		 var value = parseInt($('#res_food').html());
+		 food = food + food_inc;
+		 $('#res_food').html(Math.ceil(food));
+	}, 250);
+	</script>
+	
 </head>
 <body>
 	<header>
@@ -53,9 +86,9 @@
 	<div class="main-content">
 		<div class="resources">
 			<ul>
-				<li><img src="images/coal_icon.png"><?php echo $player['res_coal'];?></li>
-				<li><img src="images/iron_icon.png"><?php echo $player['res_iron']?></li>
-				<li><img src="images/food_icon.png"><?php echo $player['res_food']?></li>
+				<li><img src="images/coal_icon.png"><span id="res_coal"></span></li>
+				<li><img src="images/iron_icon.png"><span id="res_iron"></span></li>
+				<li><img src="images/food_icon.png"><span id="res_food"></span></li>
 				<li><img src="images/elec_icon.png"><?php echo $player['res_elec']?></li>
 			</ul>
 		</div>
