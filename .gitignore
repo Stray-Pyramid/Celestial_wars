@@ -8,9 +8,6 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
-# Git Files
-.git*
-
 # Windows Installer files
 *.cab
 *.msi
