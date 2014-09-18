@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Javascript image previewer</title>
+		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script type="text/javascript" src="preview_image.js"></script>
+	</head>
+	<body>
+		<form id="form" runat="server">
+			<input type='file' id="imgInp" />
+			<img id="imagepreview" src="avatar-placeholder.png" alt="your image" />
+		</form>
+	</body>
+	<script type="text/javascript">
+		$("#imgInp").change(function(){
+			readURL(this);
+		});
+	</script>
+</html>

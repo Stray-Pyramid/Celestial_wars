@@ -1,0 +1,143 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 1000px;
+    margin: 0 auto;
+    background: #EAEAEA;
+}
+
+header {
+    height: 350px;
+}
+
+img {
+    height: 200px;
+    width: 200px;
+    display: block;
+    margin: auto;
+}
+
+h1 {
+    font-size: 7em;
+    font-weight: bold;
+    width: 700px;
+    margin: 0 auto;
+}
+
+h2 {
+    border: solid 1px;
+    width: 150px;
+    font-size: 2.5em;
+    background: #ffffff;
+    padding: 5px;
+}
+
+label, a {
+    font-size: 17px;
+}
+
+input[type="checkbox"] {
+    float: left;
+    margin: 12px 6px 6px 6px;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+    padding: 2px 25px 2px 2px;  
+	border: 1px solid #ccc;  
+	box-shadow: inset 0 1px 3px #ddd;  
+	border-radius: 4px;  
+    width: 200px;
+    height: 20px;
+	background-repeat: no-repeat;
+	background-position: 205px;
+	background-size: 20px 20px;
+}
+
+#form {
+    width: 1000px;
+    height: 500px;
+}
+
+#form fieldset {
+    padding: 10px;
+    background: #ffffff;
+}
+
+.box-acnt_info *{
+	margin-left: 3px;
+	margin-top: 2px;
+}
+
+.box-acnt_info .box{
+	height: 65px;
+}
+
+.box-acnt_info {
+    width: 40%;
+    height: 390px;
+    float: left;
+}
+
+.box-acnt_info input {
+    display: block;
+}
+
+.box-acnt_info label {
+    padding-top: 2px;
+    display: block;
+}
+
+label.error{
+	color: red;
+	font-style: italic;
+	font-size: 14px;
+
+}
+
+.box-acnt_info .box-TandC .TandC {
+    display: block;
+    width: 400px;
+    padding: 3px;
+}
+
+.box-acnt_info .box-TandC {
+    margin-top: 20px;
+}
+
+.box-avatar img {
+    width: 300px;
+    height: 300px;
+    margin-bottom: 30px;
+}
+
+.box-avatar {
+    width: 50%;
+    height: 390px;
+    float: left;
+}
+
+.box-submit {
+    height: 50px;
+    width: 92.5%;
+    clear: both;
+}
+
+fieldset input[type=submit] {
+    width: 100px;
+    height: 50px;
+    font-size: 20px;
+}
+
+.box-acnt_info input.error{
+	background-image: url('images/invalid.png');
+	
+}
+
+.box-acnt_info input.valid{
+	background-image: url('images/valid.png');
+}
+
+

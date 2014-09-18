@@ -40,20 +40,25 @@ EOD;
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Planet Wars</title>
-		<link rel="stylesheet" type="text/stylesheet"  href="css/main_style.css" />
+		<title>Celestial Wars: A project by Stray Pyramid</title>
+		<link rel="stylesheet" type="text/css"  href="css/root_style.css" />
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	</head>
 	<body>
-		<h1>Planet Wars</h1>
+		<img src="images/logo.png" alt="Celestial Wars Logo" />
+		<h1>Celestial Wars</h1>
 		<h2>A project by Stray Pyramid</h2>
 		<section>
 			<h3>Join Planet Wars today!</h3>
-			<button type="submit"  onclick="location.href='signup.php'" >Sign up now!</button>
+			<button type="submit"  onclick="location.href='register'" >Sign up now!</button>
 		</section>
 		<section id="login_section">
 			<?php echo $loginBox_Contents; ?>
 		</section>
-		<p class="objective">Current Objective:<br/>User Account System</p>
+		<h3 class="objective">Current Objective:</h3>
+		<ul>
+			<li>User Account System</li>
+			<li>DOING SOME SHIT</li>
+		</ul>
 </html>
 
