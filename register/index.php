@@ -9,7 +9,7 @@
 		<script type="text/javascript" src="js/preview_image.js"></script>
 		<script type="text/javascript" src="js/jquery.validate.min.js"></script>
 		<script type="text/javascript" src="js/additional-methods.min.js"></script>
-		
+		<script type="text/javascript" src="js/register_validation.js"></script>	
 	</head>
 	<body>
 		<header>
@@ -65,5 +65,4 @@
 			imgPreview(this);
 		});
 	</script>
-	<script type="text/javascript" src="js/register_validation.js"></script>
 </html>

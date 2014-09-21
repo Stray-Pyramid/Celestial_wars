@@ -13,7 +13,7 @@ header {
     height: 350px;
 }
 
-img {
+header img {
     height: 200px;
     width: 200px;
     display: block;
@@ -41,7 +41,7 @@ label, a {
 
 input[type="checkbox"] {
     float: left;
-    margin: 12px 6px 6px 6px;
+    margin: 2px 6px 6px 6px;
 }
 
 input[type="text"], input[type="password"], input[type="email"] {
@@ -82,12 +82,12 @@ input[type="text"], input[type="password"], input[type="email"] {
 }
 
 .box-acnt_info input {
-    display: block;
+    /* display: block; */
 }
 
 .box-acnt_info label {
     padding-top: 2px;
-    display: block;
+    /* display: block; */
 }
 
 label.error{
@@ -110,7 +110,9 @@ label.error{
 .box-avatar img {
     width: 300px;
     height: 300px;
-    margin-bottom: 30px;
+    /* margin-bottom: 30px; */
+    margin: 0 auto 30px auto;
+    display: block;
 }
 
 .box-avatar {
@@ -131,13 +133,17 @@ fieldset input[type=submit] {
     font-size: 20px;
 }
 
-.box-acnt_info input.error{
-	background-image: url('images/invalid.png');
-	
+.box-acnt_info label img {
+    width: 20px;
+    height: 20px;
+    margin-bottom: -5px;
 }
 
-.box-acnt_info input.valid{
-	background-image: url('images/valid.png');
+.box-acnt_info .box label:first-child {
+    display: block;
 }
 
+.box-acnt_info .box-TandC .checked img{
+	display: none;
+}
 
