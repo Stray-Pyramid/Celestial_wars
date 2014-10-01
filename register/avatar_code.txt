@@ -1,0 +1,48 @@
+<fieldset class="box-avatar">
+	<!-- Profile Pic -->
+	<div id="box-avatar-preview" class="avatar">
+		<img id="avatar-preview" src="images/avatar-placeholder.png" />
+	</div>
+	<label for="user_pic"><b>OPTIONAL-</b>Upload an Avatar:</label>
+	<input type="file" name="avatarUpload" size="30" id="avatarUpload" accept=".jpg,.jpeg,.png" />
+</fieldset>
+
+
+<script type="text/javascript">
+	$("#avatarUpload").change(function(){
+		imgPreview(this);
+	});
+</script>
+
+avatarUpload: {
+	required: false,
+	extension: "jpg|jpeg|png"
+}
+
+avatarUpload: {
+	extension: "<img src='images/invalid.png'><p>The file you have chosen is not valid</p>"
+}
+
+<script type="text/javascript" src="js/additional-methods.min.js"></script>
+
+<script type="text/javascript" src="js/preview_image.js"></script>
+
+function imgPreview(input) {
+    var url = input.value;
+    var ext = url.substring(url.lastIndexOf('.') + 1).toLowerCase();
+    if (input.files && input.files[0]){
+		if(ext == "png" || ext == "jpeg" || ext == "jpg"){
+		    
+			var reader = new FileReader();
+			reader.onload = function (e) {
+				$('#avatar-preview').attr('src', e.target.result);
+			}
+			reader.readAsDataURL(input.files[0]);
+		} else {
+			$('#avatar-preview').attr('src', 'images/avatar-invalid.png');
+		}
+
+    }else{
+         $('#avatar-preview').attr('src', 'images/avatar-placeholder.png');
+    }
+}

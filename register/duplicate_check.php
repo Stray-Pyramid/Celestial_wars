@@ -1,13 +1,11 @@
 <?php
 	//Checks if a value is already present in the database.
 	//Currently only available for username and password
-	
-	if($_SERVER['REQUEST_METHOD'] == 'GET'){
-		die();
-	}
-	
 	//Connect to database
 	require_once '../../../../CW_Config/connect.php';
+
+	//Redirect if page is requested by the wrong method
+	if($_SERVER['REQUEST_METHOD'] == 'GET') header('Location:' .SITE_405);
 	
 	//Get data to check
 	if(isset($_POST['username'])){

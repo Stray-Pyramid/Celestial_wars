@@ -53,12 +53,13 @@ EOD;
 			<button type="submit"  onclick="location.href='register'" >Sign up now!</button>
 		</section>
 		<section id="login_section">
-			<?php echo $loginBox_Contents; ?>
+			<?php/* echo $loginBox_Contents; */?>
 		</section>
 		<h3 class="objective">Current Objective:</h3>
 		<ul>
-			<li>User Account System</li>
-			<li>DOING SOME SHIT</li>
+			<li>User Account System:</li>
+			<li>Registration Page</li>
 		</ul>
 </html>
+
 

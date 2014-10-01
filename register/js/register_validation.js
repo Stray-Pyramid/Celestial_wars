@@ -15,7 +15,7 @@ var imgValid = "<img src='images/valid.png'>";
 
 //Regex for username (Only Alphanumerical, and dashes)
 $.validator.addMethod("usernameRegex", function(value, element) {
-        return this.optional(element) || /^[a-z0-9\-\s]+$/i.test(value);
+        return this.optional(element) || /^[a-z0-9\-]+$/i.test(value);
 }, "Username must contain only letters, numbers, or dashes.");
 
 //Regex for password (no sapces)
@@ -33,7 +33,6 @@ $(document).ready(function(){
 	$("#registerForm").validate({
 		debug: false,
 		onkeyup: false,
-		submitHandler: alert("Form validated!"),
 		// set this class to error-labels to indicate valid fields
 		success: function(label) {
 			// Exclude valid image for tandcCheckbox
@@ -54,7 +53,7 @@ $(document).ready(function(){
 			
 			password: {
 				required: true,
-				minlength: 7,
+				minlength: 8,
 				maxlength: 20,
 				notEqual: "#username",
 				passwordRegex: true
@@ -68,19 +67,14 @@ $(document).ready(function(){
 			email: {
 					required: true,
 					email: true,
-					maxlength: 80,
+					maxlength: 254,
 					remote: {
 						url: "duplicate_check.php",
 						type: "post"
 					}
 			},
 			
-			tandcChkbox: "required",
-			
-			avatarUpload: {
-				required: false,
-				extension: "jpg|jpeg|png"
-			}
+			tandcChkbox: "required"
 				
 		},
 		messages: {
@@ -113,10 +107,6 @@ $(document).ready(function(){
 			
 			tandcChkbox: {
 				required:"You must accept the Terms and Conditions to play Celestial Wars"
-			},
-			
-			avatarUpload: {
-				extension: "<img src='images/invalid.png'><p>The file you have chosen is not valid</p>"
 			}
 		}
 	});

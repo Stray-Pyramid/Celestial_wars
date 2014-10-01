@@ -1,4 +1,6 @@
 <?php
+	//Database function testing
+	
 	require_once '../../../../CW_Config/connect.php';
 
 	$sql_st = "SELECT * FROM `users` WHERE `id` = 1";
@@ -26,4 +28,22 @@
 	echo "</p>";
 	dbClose($con);
 	debug("Select ran");
+	
+	//Password testing
+	$options = array('cost' => 11);
+	$hash = password_hash("ustedb12", PASSWORD_BCRYPT, $options);
+	
+	echo $hash;
+	echo '<br/>';
+	if (password_verify('ustedb12', $hash)) {
+    echo 'Password is valid!';
+} else {
+    echo 'Invalid password.<br/>';
+}
+
+//Date format my sql
+echo date('Y-m-d H:I:s') . "<br>";
+
+//foreach in $_POST
+print_r($_POST);
 ?>
