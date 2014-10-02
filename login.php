@@ -14,7 +14,6 @@ function login($username, $password)
 	if(mysqli_num_rows($results) == 1){
 		
 	//Logged in successfully
-		debug("Login Succeded");
 		header("Location: /overview/");
 	} else {
 		

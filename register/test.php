@@ -26,7 +26,7 @@
 		 echo "<br/>";
 	}
 	echo "</p>";
-	dbClose($con);
+
 	debug("Select ran");
 	
 	//Password testing
@@ -36,14 +36,23 @@
 	echo $hash;
 	echo '<br/>';
 	if (password_verify('ustedb12', $hash)) {
-    echo 'Password is valid!';
-} else {
-    echo 'Invalid password.<br/>';
-}
+		echo 'Password is valid!';
+	} else {
+		echo 'Invalid password.<br/>';
+	}
 
-//Date format my sql
-echo date('Y-m-d H:I:s') . "<br>";
+	//Date format my sql
+	echo date('Y-m-d H:I:s') . "<br>";
 
-//foreach in $_POST
-print_r($_POST);
+	//Can do $result->multiquery(); instead of using two queries, 
+	//multiquery will present problems to single queries if all the results are not looped though. Possible way to discard query? 
+	dbQuery($con, "CALL REGEXRUN(@a, 'james@banned.com');");
+	$result = dbQuery($con, "SELECT @a;");
+	$row = $result->fetch_assoc();
+	if($row['@a'] == 1){
+		echo "true";
+	} else{
+		echo "false";
+	}
+	dbClose($con);
 ?>

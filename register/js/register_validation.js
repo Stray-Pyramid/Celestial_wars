@@ -28,7 +28,6 @@ $.validator.addMethod("notEqual", function(value, element, param) {
  return this.optional(element) || value != $(param).val();
 }, "This has to be different...");
 
-
 $(document).ready(function(){
 	$("#registerForm").validate({
 		debug: false,
@@ -46,7 +45,7 @@ $(document).ready(function(){
 				maxlength: 20,
 				usernameRegex: true,
 				remote: {
-					url: "duplicate_check.php",
+					url: "username_check.php",
 					type: "post"
 				}
 			},
@@ -69,7 +68,7 @@ $(document).ready(function(){
 					email: true,
 					maxlength: 254,
 					remote: {
-						url: "duplicate_check.php",
+						url: "email_check.php",
 						type: "post"
 					}
 			},
@@ -94,15 +93,14 @@ $(document).ready(function(){
 			},
 			
 			passwordConf: {
-				required: "<img src='images/invalid.png'><p>Please enter the same password as above</p>",
+				required: "<img src='images/invalid.png'><p>Please confirm you password.</p>",
 				equalTo: "<img src='images/invalid.png'><p>Passwords do not match!</p>"
 			},
 			
 			email: {
 				required: "<img src='images/invalid.png'><p>Please enter an email address</p>",
 				email: "<img src='images/invalid.png'><p>Please enter a valid email address</p>",
-				maxlength: "<img src='images/invalid.png'><p>Please choose a shorter email address</p>",
-				remote: "<img src='images/invalid.png'><p>This email is already registered. Did you forget your <a href='recovery'>password?</a></p>"
+				maxlength: "<img src='images/invalid.png'><p>Please choose a shorter email address</p>"
 			},
 			
 			tandcChkbox: {

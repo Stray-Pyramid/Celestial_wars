@@ -52,8 +52,20 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	}
 	
 	function isBannedEmail($email, $con){
+		$procedure = "Call REGEXRUN(@a, '%s');";
+		$get_data 	= "SELECT @a;";
 		
-	
+		$query = sprintf($procedure, $con->escape_string($email));
+		//Query for email
+		dbQuery($con, $query);
+		$result = dbQuery($con, $get_data);
+		
+		$row = $result->fetch_assoc();
+		if($row['@a'] == 1){
+			return TRUE;
+		} else{
+			RETURN FALSE;
+		}
 	}
 	
 	//Validate Username
@@ -84,7 +96,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 		if(strlen($email) > 254){
 			array_push($errors, 'This email is too long!');
 		}
-		if(/*Verify the email is an email*/false){
+		if(!filter_var($email, FILTER_VALIDATE_EMAIL)){
 			array_push($errors, 'The email you have entered is not valid');
 		}	
 	}
