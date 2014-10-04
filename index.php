@@ -20,11 +20,21 @@
 //Although, no matter how much security I put in place, an attacker still can punch through if they are determined.
 //It is what plan I have after that matters the most.
 
-
-//WAS MAKING REDIRECT FUNCTION, COULD NOT DECIDE ON ITS PROPER PURPOSE
+//1. Bad Username
+//2. Bad Password
+//2. Email validation still needed
+//3. Account is banned
 session_start();
 
 require_once '../../../CW_Config/connect.php';
+
+
+function loginFailed($con, $msg){
+	$_SESSION['loginError'] = $msg;
+	dbClose($con);
+	header('login');
+	die();
+}
 
 if (isset($_SESSION['user_id'])){
 	//show log out instead of log in forum;
@@ -39,21 +49,17 @@ EOD;
 	//See if the username submitted matches any rows
 	//Else, login failed.
 	if($result->num_rows > 0){
-		//Check the password, if not matching, login failed
+		//Check the password. If not matching, login failed
 		if(!password_verify($_POST['password'], $passhash){
-			$_SESSION['loginError'] = "We could not find an account with the username and password combination you provided.";
-			header("login");
-			dbClose($con);
+			loginFail($con, 2);
 		}
 		//
 		if(EMAIL_VALIDATION && $results['must_validate'] == 1){
-			if({
-				//User still needs to register their account
-				$_SESSION['needValidate'] == TRUE;
-				header("register/verification");
-				dbClose($con);
-				die();
-			}
+			//User still needs to register their account
+			loginFail($con, 3);
+		}
+		if(user is banned){
+			loginFail($con, 4);
 		}
 		
 		//Set session variables (id, user agent string)
@@ -63,7 +69,7 @@ EOD;
 		header("overview");
 		
 	} else {
-		redirect("login", "We could not find an account with the username and password combination you provided.", $con);
+		loginFail($con, 1);
 	}
 	
 } else {
@@ -87,7 +93,7 @@ EOD;
 	<head>
 		<title>Celestial Wars: A project by Stray Pyramid</title>
 		<link rel="stylesheet" type="text/css"  href="css/root_style.css" />
-		<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<?php headerDefault(); ?>
 	</head>
 	<body>
 		<img src="images/logo.png" alt="Celestial Wars Logo" />
