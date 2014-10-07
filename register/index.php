@@ -178,10 +178,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 <html>
 	<head>
 		<title>Register for Celestial Wars</title>
-		<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="stylesheet" type="text/css" href="registerStyle.css" />
-		<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 		<script type="text/javascript" src="js/jquery.validate.min.js"></script>
 		<script type="text/javascript" src="js/register_validation.js"></script>
 	</head>
