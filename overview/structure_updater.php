@@ -2,7 +2,7 @@
 	$user_id = 1;
 	
 	//Connect to database
-	require_once '../../database_connection.php';
+	require_once '../../../../CW_Config.php';
 
 	//Run query for any structures that have finished upgrading
 	$query = "SELECT structure_id, structure, level, upgrade_start, upgrade_duration FROM structure_status where user_id = {$user_id} and is_upgrading = 1;";

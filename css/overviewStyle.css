@@ -1,0 +1,117 @@
+header img {
+    width: 400px;
+    margin: 0 40px;
+}
+
+h1 {
+    font-size: 70px;
+    margin: 5px;
+}
+
+body {
+    width: 675px;
+    margin: 0 auto;
+}
+
+body *{
+    text-align: center;
+    
+}
+
+ul{
+	padding: 0px;
+	list-style: none;
+}
+
+form img{
+	display: none;
+	float: right;
+	margin: 5px;
+}
+
+.boxLeft {
+    float: left;
+    border: 1px solid black;
+    height: 150px;
+    width: 300px;
+}
+
+.boxRight {
+    float: left;
+    height: 150px;
+    width: 300px;
+    border: 1px solid black;
+    border-left: none;
+}
+
+h3 {
+    margin: 5px;
+}
+
+.btnRegister {
+    padding: 20px;
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+.boxNews {
+    clear: both;
+    width: 200px;
+    margin: 0 auto;
+    padding-top: 25px;
+}
+
+header {
+    margin-bottom: 15px;
+}
+
+input[type=text], input[type=password] {
+    padding: 2px;  
+	border: 1px solid #ccc;  
+	box-shadow: inset 0 1px 3px #ddd;  
+	border-radius: 4px;  
+	width: 178px;
+    text-align: left;
+    display: block;
+    margin-left: 5px;
+    margin-bottom: 6px;
+}
+
+.btnLogin {
+    float: right;
+    margin: 0 5px 2px 0;
+    padding: 5px;
+}
+
+.btnRemember {
+    float: left;
+    margin-left: 8px;
+}
+
+.boxRight h3 {
+    /*width: 50px;*/
+	text-align: left;
+}
+
+.content {
+    width: 604px;
+    margin: 0 auto;
+}
+
+.boxRight label {
+    float: left;
+    margin-left: 5px;
+}
+
+.error{
+	color: red;
+	margin-top: 16px;
+	font-size: 15px;
+	clear: both;
+}
+
+.btnLogout {
+    padding: 5px;
+    margin-left: 10px;
+}
+}

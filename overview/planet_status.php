@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<?php
-		require_once '../../database_connection.php';
+		require_once '../../../../CW_Config.php';
 		require_once 'item_updater.php';
 	
 		$player_query = mysql_query("SELECT * FROM player_status WHERE user_id=1");
@@ -21,14 +21,13 @@
 			$struc[$i]['upgrade_duration']=$struc_result['upgrade_duration'];
 			$i++;
 		}
+		
+	headerDefault("Overview");
 	?>
-
-	<title>A typical MO Space strategy game</title>
 	
 	<link href="css/jquery-ui-1.8.16.custom.css" rel="stylesheet" type="text/css"/>
 	<link href="css/main.css" rel="stylesheet" type="text/css" />
 
-	<script type="text/javascript" src="js/jquery-1.6.2.min.js"></script>
 	<script type="text/javascript" src="js/jquery-ui-1.8.16.custom.min.js"></script> 
 	
 	<script type="text/javascript" src="js/script.js"></script>
@@ -192,17 +191,13 @@
 	</div>
 	<h2>To do list:</h2>
 	<ol>
-		<li>Get resource_updater.php running when upgrade.php is run (and other scripts that require resources)</li>
 		<li>Enable upgrade functionality for the other 3 structures</li>
 		<li>Upgrade costs, upgrade limits and increasing production (How am I going to balance this?)</li>
 		<li>Resource storage buildings (Resources can not go above the limit of the structure</li>
 		<li>Shipyards, Space Ships and all that jazz</li>
-		<li>Planets + Eventually being able to colonize more than one</li>
+		<li>Planets(DONE) + Eventually being able to colonize more than one</li>
 		<li>Ability to attack other players and steal resources</li>
 		<li>The Overview (A status screen that tells you who what when where why and how)</li>
-		<li>Upgrading mysql to mysqli and learning how to prevent sql injection (Its pretty easy it seems)</li>
-		<li>A title for the game, some styling to give it some personality</li>
-		<li>User Account system, so we can actually get people playing!</li>
 		<li>Research (Weapon efficiency, ship health, intelligence gathering)</li>
 		<li>Alliances, Enemies, Diplomacy, some basic chat functions</li>
 		<li>Space map prototype! (cosine and sine, x = cosine(time), y = sine(time), scaling time to make it the speed you want it)</li>

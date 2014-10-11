@@ -81,13 +81,9 @@ input[type="text"], input[type="password"], input[type="email"] {
     float: left;
 }
 
-.box-acnt_info input {
-    /* display: block; */
-}
 
 .box-acnt_info label {
     padding-top: 2px;
-    /* display: block; */
 }
 
 label.error{
@@ -110,7 +106,6 @@ label.error{
 .box-avatar .avatar img {
     width: 300px;
     height: 300px;
-    /* margin-bottom: 30px; */
     margin: 0 auto 30px auto;
     display: block;
 }
@@ -155,3 +150,9 @@ input#avatarUpload {
     width: 175px;
 }
 
+.imgSolar{
+	width: 500px;
+	height: 390px;
+	margin: 8px;
+	margin-top: 1px;
+}

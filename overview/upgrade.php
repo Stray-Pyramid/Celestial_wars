@@ -7,7 +7,7 @@
 	<body>
 <?php
 
-	require_once '../../database_connection.php';
+	require_once '../../../../CW_Config.php';
 	require_once 'structure_updater.php';
 		
 	//Resource Requirement

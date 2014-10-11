@@ -135,15 +135,16 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 	if(empty($errors)){
 			
 		//Get date FORMAT (YYYY-MM-DD HH:MM:SS)
-		$regdate = date('Y-m-d H:I:s');
+		$regdate = date('Y-m-d H:i:s');
 		
 		//hash password
 		$options = array('cost' => 11);
 		$passhash = password_hash($password, PASSWORD_BCRYPT, $options);
-		//If passhash is shorter than 13 characters, rehash
-		
-		
+
 		//Convert IP address into integer 
+		if (isset($_SERVER["HTTP_CF_CONNECTING_IP"])) {
+		  $_SERVER['REMOTE_ADDR'] = $_SERVER["HTTP_CF_CONNECTING_IP"];
+		}
 		$ip = ip2long($_SERVER['REMOTE_ADDR']);
 		
 		//Put into database and confirm
@@ -177,7 +178,8 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title>Register for Celestial Wars</title>
+		<?php headerDefault("Register for Celestial Wars"); ?>
+		
 		<link rel="stylesheet" type="text/css" href="registerStyle.css" />
 		<script type="text/javascript" src="js/jquery.validate.min.js"></script>
 		<script type="text/javascript" src="js/register_validation.js"></script>
@@ -216,6 +218,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
 						</div>
 					</div>
 				</fieldset>
+				<img src="images/solar.png" class="imgSolar" title="Much filler wow">
 				<fieldset class="box-submit">
 					<!--Submit and errors-->
 					<input type="submit" value="Register" />

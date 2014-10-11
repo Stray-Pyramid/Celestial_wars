@@ -1,8 +1,6 @@
 <?php
 //Frontpage!
 
-//Page will follow one and two halfs style
-
 //PHP Session Hijack prevention best practices:
 
 //Full site https - Prevents MITM Attacks
@@ -30,20 +28,23 @@ if (isset($_SESSION['id'])){
 			<h3>You are logged in as</h3>
 			<h3>{$_SESSION['username']}</h3>
 			<a href="overview">Go to your overview</a>
-			<a href="logout.php">Log out</a>
+			<button type="submit"  class="btnLogout" onclick="location.href='logout.php'" >Log out</button>
 EOD;
 
 } else {
 	//show the page normally (with login)
 	$loginBoxContents  = <<<EOD
-			<h3>Login</h3>
-			<form id="login_form" action="login" method="POST">
-				<label for="username">Username:</label>
+<h3>Login</h3>
+
+			<form id="login_form" action="login/" method="POST" name="loginForm">
 				<input type="text" name="username" id="usernameInput" size="30" placeholder="username" />
-				<label for="password">Password:</label>
 				<input type="password" name="password" id="passwordInput" size="20" placeholder="password" />
-				<input type="submit" id="loginSubmit" value="Sign in" />
+				<input type="checkbox" name="remeberLogin" class="btnRemember" />
+				<label for="rememberLogin">Remember me (TODO) </label>
+				<input type="submit" id="loginSubmit" class="btnLogin" value="Sign in" />
+				<img id='loadingGif' src='images/loading.gif' />
 			</form>
+			<div id="error" class="error"></div>
 EOD;
 }
 
@@ -54,27 +55,36 @@ EOD;
 	<head>
 		<?php headerDefault("Celestial Wars: A project by StrayPyramid"); ?>
 
-		<link rel="stylesheet" type="text/css"  href="css/root_style.css" />
+		<link rel="stylesheet" type="text/css"  href="css/overviewStyle.css" />
 		<script src="login/loginValidation.js" type="text/javascript"></script>
 	</head>
 	<body>
-		<img src="images/logo.png" alt="Celestial Wars Logo" />
-		<h1>Celestial Wars</h1>
-		<h2>A project by Stray Pyramid</h2>
-		<section>
-			<h3>Join Planet Wars today!</h3>
-			<button type="submit"  onclick="location.href='register'" >Sign up now!</button>
-		</section>
-		<section id="login_section">
-			<?php echo $loginBoxContents; ?>
-		</section>
-		<h3 class="objective">Current Objective:</h3>
-		<ul>
-			<li>Login and Logout (80%)</li>
-			<li>Main planet Overview (20%)</li>
-		</ul>
+		<header>
+			<img src="images/logo.png" alt="Celestial Wars Logo" />
+			<h1>Celestial Wars</h1>
+			<h2>A project by Stray Pyramid</h2>
+		</header>
+		<div class="content">
+			<section class="boxLeft">
+				<h3>Join Planet Wars today!</h3>
+				<button type="submit"  class="btnRegister" onclick="location.href='register'" >Sign up now!</button>
+			</section>
+			<section id="login_section" class="boxRight">
+				<?php echo $loginBoxContents; ?>
+			
+			</section>
+			<section class="boxNews">
+				<h3 class="objective">Current Objective:</h3>
+				<ul>
+					<li>List of planets</li>
+					<li>Main planet Overview (20%)</li>
+				</ul>
+			</section>
+		</div>
+		<div class="footer">
+		</div>
+		<?php footerDefault(); ?> 
 	</body>
-	<?php footerDefault(); ?> 
 </html>
 
 
